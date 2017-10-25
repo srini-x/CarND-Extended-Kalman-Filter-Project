@@ -52,6 +52,11 @@ public:
    */
   void Predict();
 
+  void CalcError(const Eigen::VectorXd &z, Eigen::VectorXd &y);
+  void CalcErrorEKF(const Eigen::VectorXd &z, Eigen::VectorXd &y);
+  void CalcKalmanGain(Eigen::MatrixXd &K);
+  void CalcNewEstimate(const Eigen::MatrixXd &K, const Eigen::VectorXd &y);
+
   /**
    * Updates the state by using standard Kalman Filter equations
    * @param z The measurement at k+1
